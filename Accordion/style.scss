@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color: violet;
+}
+.container{
+    width: 100vw;
+    height: 200px;
+    background: url(/images/background-pattern-desktop.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .accordion-box{
+        width: 600px;
+        height: 500px;
+        border-radius: .5rem;
+        padding: 0 2rem;
+        margin-bottom: -22rem;
+        background-color: transparentize($color: beige, $amount: 0.2);
+
+        header{
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+
+            img{
+                margin-right: 1.2rem;
+                width: 50px;
+            }
+            h2{
+                font-size: 3rem;
+                font-family: monospace;
+            }
+
+        }
+        
+        li{
+            list-style: none;
+            margin-bottom: 1rem;
+
+            label{
+                font-family: monospace;
+                font-weight: 600;
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                padding: .5rem;
+
+                span{
+                    transform: rotate(90deg);
+                    padding-right: .1rem;
+                    margin-right: .9rem;
+                }
+            }
+            .content{
+                width: 90%;
+                margin: 0 auto;
+                padding: 0 10px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .5s;
+
+                p{
+                    font-family: monospace;
+                    font-size: 1rem;
+                }
+            }
+            input[type="radio"]{
+                display: none;
+            }
+            input[type="radio"]:checked + .content{
+                max-height: 300px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px){
+   .container{
+
+    width: 100%;
+    .accordion-box{
+        width: 350px;
+        height: auto;
+        border-radius: .5rem;
+        padding: 0 2.5rem;
+        margin-bottom: -30rem;
+        background-color: rgb(66, 33, 66);
+        color: wheat;
+    }
+   }
+} 
+
