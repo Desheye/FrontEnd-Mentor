@@ -1,35 +1,49 @@
 const btn = document.getElementById("btn");
 const modalPage = document.getElementById("mP");
 const emailInput = document.getElementById("name");
-const errorMsg = document.querySelector(".errorMsg");
+const modalButton = document.getElementById('modalButton');
+const errorMsg = document.getElementsByClassName('.errorMsg');
+const modalEmail = document.getElementById('modalEmail');
 
-btn.addEventListener("click", function() {
+btn.addEventListener("click", function(event){
+    event.preventDefault();
+
     const emailValue = emailInput.value;
     if (isValidEmail(emailValue)) {
+        modalEmail.textContent = emailValue;
         modalPage.style.visibility = 'visible';
-        setTimeout(function() {
+        modalButton.style.backgroundColor = 'green';
+        setTimeout(function(){
             modalPage.style.visibility = 'hidden';
-        }, 2000);
+            modalEmail.textContent = '';
+        }, 3000);
 
-        // Clear the email input field
         emailInput.value = '';
-    } else {
+    } else{
         showError();
     }
+
+});
+modalButton.addEventListener("click", function(){
+    modalPage.style.visibility = 'hidden';
+    modalEmail.textContent = '';
 });
 
-// Function to validate email format
+
+//Function To Validate Email Foemat
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     return emailRegex.test(email);
 }
 
-// Function to show error message
-function showError() {
+//Function To Show Error
+function showError(){
     errorMsg.style.display = 'block';
 }
 
 // Event listener for email input to hide error message while typing
+
 emailInput.addEventListener("input", function() {
     const emailValue = emailInput.value;
     if (isValidEmail(emailValue)) {

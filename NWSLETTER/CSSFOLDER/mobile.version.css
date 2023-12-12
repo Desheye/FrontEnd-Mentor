@@ -19,6 +19,13 @@
         font-size: 1.1rem;
         margin-bottom: .1rem;
     }
+    .container .grid .grid1 p{
+        font-size: 1.1rem;
+        margin-bottom: .1rem;
+    }
+        .container .grid .grid1 #mP {
+            width: 80%; 
+        }
     .container .grid .grid2{
         width: 100%;
     }

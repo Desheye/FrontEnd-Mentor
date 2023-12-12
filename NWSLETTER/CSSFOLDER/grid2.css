@@ -1,5 +1,7 @@
 .grid2{
     width: 100%;
+    z-index: 1;
+    position: relative;
 }
 .grid2 .canvas{
     width: 100%;
@@ -8,5 +10,7 @@
     background-repeat: no-repeat;
     background-position: center;
     border-radius: .4rem;
+    z-index: 1;
+    position: relative;
 }
 
